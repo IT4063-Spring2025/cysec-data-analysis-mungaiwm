@@ -38,30 +38,32 @@ You'll also find some tips and links to documentations that will help you comple
 ---------------
 ## 💭 Reflection and Self Assessment
 
-**I learned:** (repeat as needed)
+**I learned:** How to preprocess data using dummy variables and scaling techniques and
+How to split a dataset into features and target variables for machine learning.
 - .
 
-**I struggled with:** (repeat as needed)
-- .
+**I struggled with:** 
+-Understanding how to properly scale the dataset using StandardScaler.
+Debugging errors related to undefined variables in the code. .
 
-**I need the instructor to help me with:** (repeat as needed)
-- .
+**I need the instructor to help me with:** 
+-Clarifying the steps for evaluating models using cross-validation. .
 
 **How long did it take you to complete this assignment? and reflect on that**
-[ ] hours.
+[9] hours.
 
-**If I were to do this assignment again, I would:** (repeat as needed)
-- .
+**If I were to do this assignment again, I would:** 
+-Break the tasks into smaller steps and test each step thoroughly. .
 
-**💯 Self Grade:** For this assignment, based on my work and my reflections I should get [ ] out of 20.
+**💯 Self Grade:** For this assignment, based on my work and my reflections I should get [20] out of 20.
 
 --------------------
 ## 📚 References and Citations
-**I used the following links, books, and other resources in my work:** (repeat as needed)
-- .
+**I used the following links, books, and other resources in my work:**
+-Mostly I used copilot to understand and rectify some errors.
   
 **I received help from the following people:** (repeat as needed)
-- .
+-None .
 
 ---
 ## Copyrights and License
