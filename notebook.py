@@ -9,7 +9,7 @@
 # 
 # TODO: Import the necessary libraries for data analysis and visualization.
 
-# In[87]:
+# In[106]:
 
 
 import pandas as pd
@@ -21,7 +21,7 @@ pd.options.display.max_rows = 999
 # 
 # TODO: Load the given dataset.
 
-# In[88]:
+# In[107]:
 
 
 link = "./Data/CySecData.csv"
@@ -30,7 +30,7 @@ link = "./Data/CySecData.csv"
 # # Step 3: Display the first few rows of the dataset
 # TODO: Import the necessary libraries for data analysis and visualization.
 
-# In[89]:
+# In[108]:
 
 
 # display the first 5 rows of the dataset
@@ -45,7 +45,7 @@ df = display_data()
 # 
 # TODO: Provide a summary of the dataset.
 
-# In[90]:
+# In[109]:
 
 
 # provide a summary of the dataset
@@ -59,7 +59,7 @@ df = summary_data()
 # # Step 5: Creating dummy variables
 # TODO: Create dummy variables for the categorical columns except for the label column "class".
 
-# In[91]:
+# In[110]:
 
 
 # Create dummy variables for categorical columns except for the label column "class"
@@ -83,7 +83,7 @@ print(dfDummies.head())
 # # Step 6: Dropping the target column
 # TODO: Drop the target column 'class' from the dataset.
 
-# In[92]:
+# In[111]:
 
 
 # Drop the target column 'class' from the dataset
@@ -93,7 +93,7 @@ def drop_target(df):
     return df
 
 
-# In[93]:
+# In[112]:
 
 
 #Drop the target column 'class' from the dataset.
@@ -103,7 +103,7 @@ def drop_target():
 df = drop_target()
 
 
-# In[94]:
+# In[113]:
 
 
 # add a column 'class' to the dataset
@@ -115,7 +115,7 @@ def add_class_column(df):
 # # Step 7: Importing the Standard Scaler
 # TODO: Import the `StandardScaler` from `sklearn.preprocessing`.
 
-# In[95]:
+# In[114]:
 
 
 # import the StandardScaler from sklearn.preprocessing.
@@ -127,30 +127,39 @@ scaler = StandardScaler()
 # # Step 8: Scaling the dataset
 # TODO: Scale the dataset using the `StandardScaler`.
 
-# In[96]:
+# In[115]:
 
 
-# Scale the dataset using the StandardScaler
+# Check for non-numeric columns
+print(dfDummies.dtypes)
+
+
+# In[116]:
+
+
+#  drop non-numeric columns
+dfDummies_numeric = dfDummies.select_dtypes(include=['number'])
+
+
+# In[117]:
+
+
+from sklearn.preprocessing import StandardScaler
+
+scaler = StandardScaler()
+
 def scale_data(df):
-    # Fit the scaler to the data and transform it
     scaled_data = scaler.fit_transform(df)
+    return pd.DataFrame(scaled_data, columns=df.columns)
 
-    # Convert the scaled data back to a DataFrame
-    df_scaled = pd.DataFrame(scaled_data, columns=df.columns)
-
-    return df_scaled
-
-# Assuming 'dfDummies' is the DataFrame to be scaled
-dfNormalized = scale_data(dfDummies)
-
-# Display the first few rows of the scaled DataFrame
+dfNormalized = scale_data(dfDummies_numeric)
 print(dfNormalized.head())
 
 
 # # Step 9: Splitting the dataset
 # TODO: Split the dataset into features (X) and target (y).
 
-# In[97]:
+# In[118]:
 
 
 def split_dataset(df, target_column='class'):
@@ -166,7 +175,7 @@ def split_dataset(df, target_column='class'):
 # # Step 10: Importing the required libraries for the models
 # TODO: Import the necessary libraries for model training and evaluation.
 
-# In[98]:
+# In[119]:
 
 
 # import the necessary libraries for model training and evaluation
@@ -178,7 +187,7 @@ from sklearn.ensemble import RandomForestClassifier
 # # Step 11: Defining the models (Logistic Regression, Support Vector Machine, Random Forest)
 # TODO: Define the models to be evaluated.
 
-# In[99]:
+# In[120]:
 
 
 # Define the models to be evaluated
@@ -195,7 +204,7 @@ from sklearn.model_selection import cross_val_score
 # TODO: Evaluate the models using 10 fold cross-validation and display the mean and standard deviation of the accuracy.
 # Hint: Use Kfold cross validation and a loop
 
-# In[100]:
+# In[121]:
 
 
 # Evaluate the models using 10 fold cross-validation and display the mean and standard deviation of the accuracy.
@@ -223,7 +232,7 @@ def evaluate_models(X, y, models):
 get_ipython().system('jupyter nbconvert --to script notebook.ipynb')
 
 
-# In[86]:
+# In[ ]:
 
 
 # Verify the script conversion
