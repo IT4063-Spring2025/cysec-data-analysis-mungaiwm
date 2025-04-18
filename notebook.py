@@ -9,22 +9,19 @@
 # 
 # TODO: Import the necessary libraries for data analysis and visualization.
 
-# In[3]:
+# In[87]:
 
 
 import pandas as pd
 import matplotlib.pyplot as plt
-import seaborn as sns
-import warnings
 pd.options.display.max_rows = 999
-warnings.filterwarnings("ignore")
 
 
 # # Step 2: Loading the dataset
 # 
 # TODO: Load the given dataset.
 
-# In[7]:
+# In[88]:
 
 
 link = "./Data/CySecData.csv"
@@ -33,7 +30,7 @@ link = "./Data/CySecData.csv"
 # # Step 3: Display the first few rows of the dataset
 # TODO: Import the necessary libraries for data analysis and visualization.
 
-# In[16]:
+# In[89]:
 
 
 # display the first 5 rows of the dataset
@@ -48,7 +45,7 @@ df = display_data()
 # 
 # TODO: Provide a summary of the dataset.
 
-# In[17]:
+# In[90]:
 
 
 # provide a summary of the dataset
@@ -62,7 +59,7 @@ df = summary_data()
 # # Step 5: Creating dummy variables
 # TODO: Create dummy variables for the categorical columns except for the label column "class".
 
-# In[46]:
+# In[91]:
 
 
 # Create dummy variables for categorical columns except for the label column "class"
@@ -86,7 +83,7 @@ print(dfDummies.head())
 # # Step 6: Dropping the target column
 # TODO: Drop the target column 'class' from the dataset.
 
-# In[47]:
+# In[92]:
 
 
 # Drop the target column 'class' from the dataset
@@ -96,13 +93,7 @@ def drop_target(df):
     return df
 
 
-# In[ ]:
-
-
-
-
-
-# In[43]:
+# In[93]:
 
 
 #Drop the target column 'class' from the dataset.
@@ -112,7 +103,7 @@ def drop_target():
 df = drop_target()
 
 
-# In[60]:
+# In[94]:
 
 
 # add a column 'class' to the dataset
@@ -124,7 +115,7 @@ def add_class_column(df):
 # # Step 7: Importing the Standard Scaler
 # TODO: Import the `StandardScaler` from `sklearn.preprocessing`.
 
-# In[50]:
+# In[95]:
 
 
 # import the StandardScaler from sklearn.preprocessing.
@@ -136,7 +127,7 @@ scaler = StandardScaler()
 # # Step 8: Scaling the dataset
 # TODO: Scale the dataset using the `StandardScaler`.
 
-# In[61]:
+# In[96]:
 
 
 # Scale the dataset using the StandardScaler
@@ -159,7 +150,7 @@ print(dfNormalized.head())
 # # Step 9: Splitting the dataset
 # TODO: Split the dataset into features (X) and target (y).
 
-# In[84]:
+# In[97]:
 
 
 def split_dataset(df, target_column='class'):
@@ -175,7 +166,7 @@ def split_dataset(df, target_column='class'):
 # # Step 10: Importing the required libraries for the models
 # TODO: Import the necessary libraries for model training and evaluation.
 
-# In[76]:
+# In[98]:
 
 
 # import the necessary libraries for model training and evaluation
@@ -187,7 +178,7 @@ from sklearn.ensemble import RandomForestClassifier
 # # Step 11: Defining the models (Logistic Regression, Support Vector Machine, Random Forest)
 # TODO: Define the models to be evaluated.
 
-# In[78]:
+# In[99]:
 
 
 # Define the models to be evaluated
@@ -204,7 +195,7 @@ from sklearn.model_selection import cross_val_score
 # TODO: Evaluate the models using 10 fold cross-validation and display the mean and standard deviation of the accuracy.
 # Hint: Use Kfold cross validation and a loop
 
-# In[79]:
+# In[100]:
 
 
 # Evaluate the models using 10 fold cross-validation and display the mean and standard deviation of the accuracy.
@@ -230,4 +221,11 @@ def evaluate_models(X, y, models):
 # Convert the notebook to a script using the `nbconvert` command.
 
 get_ipython().system('jupyter nbconvert --to script notebook.ipynb')
+
+
+# In[86]:
+
+
+# Verify the script conversion
+get_ipython().system('ls')
 
