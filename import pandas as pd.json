@@ -1,0 +1,53 @@
+import pandas as pd
+import pytest
+from notebook import split_data
+
+# File: test_notebook.ipynb
+
+
+def test_split_data_valid():
+    # Create a sample DataFrame
+    data = {
+        'feature1': [1, 2, 3],
+        'feature2': [4, 5, 6],
+        'class': [0, 1, 0]
+    }
+    df = pd.DataFrame(data)
+    
+    # Call the function
+    X, y = split_data(df)
+    
+    # Assertions
+    assert 'class' not in X.columns
+    assert list(y) == [0, 1, 0]
+    assert X.shape == (3, 2)
+
+def test_split_data_no_class_column():
+    # Create a DataFrame without 'class' column
+    data = {
+        'feature1': [1, 2, 3],
+        'feature2': [4, 5, 6]
+    }
+    df = pd.DataFrame(data)
+    
+    # Expect an error
+    with pytest.raises(KeyError):
+        split_data(df)
+
+def test_split_data_mixed_types():
+    # Create a DataFrame with mixed data types
+    data = {
+        'feature1': [1, 2, 3],
+        'feature2': ['A', 'B', 'C'],
+        'class': [0, 1, 0]
+    }
+    df = pd.DataFrame(data)
+    
+    # Call the function
+    X, y = split_data(df)
+    
+    # Assertions
+    assert 'class' not in X.columns
+    assert list(y) == [0, 1, 0]
+    assert X.shape == (3, 2)
+    assert X['feature2'].dtype == object
