@@ -9,12 +9,13 @@
 # 
 # TODO: Import the necessary libraries for data analysis and visualization.
 
-# In[106]:
+# In[ ]:
 
 
 import pandas as pd
 import matplotlib.pyplot as plt
 pd.options.display.max_rows = 999
+from notebook import df, dfDummies, dfNormalized, X, y, models
 
 
 # # Step 2: Loading the dataset
@@ -221,10 +222,27 @@ def evaluate_models(X, y, models):
     return results, names
 
 
+# In[124]:
+
+
+# Ensure all columns are numeric before scaling
+def scale_data(df):
+    numeric_df = df.select_dtypes(include=['number'])  # Select only numeric columns
+    scaled_data = scaler.fit_transform(numeric_df)    # Scale the numeric data
+    df_scaled = pd.DataFrame(scaled_data, columns=numeric_df.columns)  # Convert back to DataFrame
+    return df_scaled
+
+# Assuming 'dfDummies' is the DataFrame to be scaled
+dfNormalized = scale_data(dfDummies)
+
+# Display the first few rows of the scaled DataFrame
+print(dfNormalized.head())
+
+
 # # Step 13: Converting the notebook to a script
 # TODO: Convert the notebook to a script using the `nbconvert` command.
 
-# In[ ]:
+# In[122]:
 
 
 # Convert the notebook to a script using the `nbconvert` command.
@@ -232,7 +250,7 @@ def evaluate_models(X, y, models):
 get_ipython().system('jupyter nbconvert --to script notebook.ipynb')
 
 
-# In[ ]:
+# In[123]:
 
 
 # Verify the script conversion
