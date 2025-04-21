@@ -72,10 +72,10 @@ df = summary_data()
 def create_dummies(df):
     # Select categorical columns excluding 'class'
     categorical_columns = [col for col in df.select_dtypes(include=['object']).columns if col != 'class']
-    
+
     # Create dummy variables
     dfDummies = pd.get_dummies(df, columns=categorical_columns, drop_first=True)
-    
+
     return dfDummies
 
 # Assuming 'df' is the original DataFrame
@@ -212,7 +212,7 @@ print(dfNormalized.head(5))
 # # Step 13: Converting the notebook to a script
 # TODO: Convert the notebook to a script using the `nbconvert` command.
 
-# In[36]:
+# In[ ]:
 
 
 # Convert the notebook to a script using the `nbconvert` command.
